@@ -8,10 +8,13 @@ function App() {
     <Router>
       <div className="d-flex flex-column min-vh-100">
         {/* Navbar */}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
           <div className="container">
-            <Link className="navbar-brand" to="/">Belajar Jepang</Link>
-            <div className="collapse navbar-collapse">
+            <Link className="navbar-brand fw-bold" to="/">日本語学習</Link>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
                 <li className="nav-item"><Link className="nav-link" to="/materi">Materi</Link></li>
@@ -22,7 +25,7 @@ function App() {
         </nav>
 
         {/* Content */}
-        <main className="container my-5 flex-grow-1">
+        <main className="flex-grow-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/materi" element={<Materi />} />
@@ -31,8 +34,8 @@ function App() {
         </main>
 
         {/* Footer */}
-        <footer className="bg-light text-center py-3">
-          <small>© {new Date().getFullYear()} BelajarBahasaJepang.com</small>
+        <footer className="bg-light text-center text-muted py-4 mt-5 border-top">
+          <div>© {new Date().getFullYear()} BelajarBahasaJepang.com | Made with ❤️ for learners</div>
         </footer>
       </div>
     </Router>
