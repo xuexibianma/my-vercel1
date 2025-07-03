@@ -1,69 +1,42 @@
-// src/App.js
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Materi from "./pages/Materi";
+import Kontak from "./pages/Kontak";
 
 function App() {
   return (
-    <div className="App">
-      <header style={styles.header}>
-        <h1 style={styles.title}>Belajar Bahasa Jepang</h1>
-        <p style={styles.subtitle}>Mulai dari dasar hingga mahir dengan panduan terstruktur</p>
-      </header>
+    <Router>
+      <div className="d-flex flex-column min-vh-100">
+        {/* Navbar */}
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div className="container">
+            <Link className="navbar-brand" to="/">Belajar Jepang</Link>
+            <div className="collapse navbar-collapse">
+              <ul className="navbar-nav ms-auto">
+                <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/materi">Materi</Link></li>
+                <li className="nav-item"><Link className="nav-link" to="/kontak">Kontak</Link></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
-      <main style={styles.main}>
-        <section style={styles.section}>
-          <h2>📘 Materi</h2>
-          <ul>
-            <li>Hiragana & Katakana</li>
-            <li>Kosakata & Kanji Dasar</li>
-            <li>Grammar (Tata Bahasa)</li>
-            <li>JLPT N5–N1</li>
-          </ul>
-        </section>
+        {/* Content */}
+        <main className="container my-5 flex-grow-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/materi" element={<Materi />} />
+            <Route path="/kontak" element={<Kontak />} />
+          </Routes>
+        </main>
 
-        <section style={styles.section}>
-          <h2>📝 Latihan</h2>
-          <p>Interaktif kuis, latihan membaca, dan latihan menulis.</p>
-        </section>
-
-        <section style={styles.section}>
-          <h2>🎯 Tujuan Kami</h2>
-          <p>Membantu kamu belajar bahasa Jepang secara konsisten dan menyenangkan.</p>
-        </section>
-      </main>
-
-      <footer style={styles.footer}>
-        <p>© 2025 BelajarBahasaJepang.com | Dibuat dengan ❤️ dan React</p>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer className="bg-light text-center py-3">
+          <small>© {new Date().getFullYear()} BelajarBahasaJepang.com</small>
+        </footer>
+      </div>
+    </Router>
   );
 }
-
-const styles = {
-  header: {
-    backgroundColor: '#e63946',
-    color: '#fff',
-    padding: '2rem',
-    textAlign: 'center'
-  },
-  title: {
-    fontSize: '2.5rem',
-    margin: 0
-  },
-  subtitle: {
-    fontSize: '1.25rem',
-    marginTop: '0.5rem'
-  },
-  main: {
-    padding: '2rem'
-  },
-  section: {
-    marginBottom: '2rem'
-  },
-  footer: {
-    backgroundColor: '#f1f1f1',
-    padding: '1rem',
-    textAlign: 'center'
-  }
-};
 
 export default App;
