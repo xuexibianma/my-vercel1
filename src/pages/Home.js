@@ -3,7 +3,7 @@ function Home() {
     <div className="container py-5">
       {/* Hero */}
       <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold">Belajar Bahasa Jepang</h1>
+        <h1 className="display-4 fw-bold">日本語勉強します</h1>
         <p className="lead text-muted">Mulai dari Hiragana hingga percakapan sehari-hari — gratis dan interaktif!</p>
         <a href="/materi" className="btn btn-primary btn-lg mt-3">Mulai Belajar</a>
       </div>
